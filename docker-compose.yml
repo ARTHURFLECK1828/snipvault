@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    container_name: snipvault-postgres
+    environment:
+      POSTGRES_DB: snipvault
+      POSTGRES_USER: snipvault
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U snipvault"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - snipvault-network
+
+  # SnipVault application
+  snipvault:
+    build: .
+    container_name: snipvault-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Database
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: snipvault
+      POSTGRES_USER: snipvault
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+
+      # Pinecone
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_ENVIRONMENT: ${PINECONE_ENVIRONMENT}
+
+      # Gemini
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+
+      # Optional: OpenAI
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+
+      # Optional: GitHub
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+    volumes:
+      - snipvault_cache:/root/.snipvault/cache
+      - snipvault_logs:/root/.snipvault/logs
+      - snipvault_models:/root/.snipvault/models
+      - ./config:/root/.snipvault/config:ro
+    networks:
+      - snipvault-network
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgres_data:
+    driver: local
+  snipvault_cache:
+    driver: local
+  snipvault_logs:
+    driver: local
+  snipvault_models:
+    driver: local
+
+networks:
+  snipvault-network:
+    driver: bridge

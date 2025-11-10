@@ -1,0 +1,53 @@
+# CLI Framework
+click==8.1.7
+
+# Database
+psycopg2-binary==2.9.9
+
+# Vector Database
+pinecone-client==3.0.3
+
+# Google Gemini API
+google-generativeai==0.3.2
+
+# Environment Management
+python-dotenv==1.0.0
+
+# Rich CLI Output
+rich==13.7.0
+
+# Clipboard Support
+pyperclip==1.8.2
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-asyncio==0.23.2
+
+# Code Quality
+ruff==0.1.8
+black==23.12.1
+mypy==1.7.1
+pre-commit==3.6.0
+
+# Type Stubs
+types-psycopg2==2.9.21.16
+
+# Configuration
+pyyaml==6.0.1
+
+# Async Support
+aiohttp==3.9.1
+asyncpg==0.29.0
+
+# Alternative Embedding Models
+sentence-transformers>=2.2.2  # Local embeddings
+torch>=2.0.0  # Required for sentence-transformers
+openai>=1.3.0  # OpenAI embeddings
+
+# GitHub Integration
+PyGithub>=2.1.1  # GitHub API
+
+# Additional Dependencies
+numpy>=1.24.0  # Required for embeddings
