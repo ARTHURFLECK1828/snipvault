@@ -71,9 +71,9 @@ all = [
 snipvault = "main:cli"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/snipvault"
-Repository = "https://github.com/yourusername/snipvault"
-Documentation = "https://github.com/yourusername/snipvault#readme"
+Homepage = "https://github.com/ARTHURFLECK1828/snipvault"
+Repository = "https://github.com/ARTHURFLECK1828/snipvault"
+Documentation = "https://github.com/ARTHURFLECK1828/snipvault#readme"
 
 # Black configuration
 [tool.black]
