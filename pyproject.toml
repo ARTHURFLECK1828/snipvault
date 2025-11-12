@@ -68,7 +68,7 @@ all = [
 ]
 
 [project.scripts]
-snipvault = "main:cli"
+snipvault = "snipvault.__main__:cli"
 
 [project.urls]
 Homepage = "https://github.com/ARTHURFLECK1828/snipvault"
