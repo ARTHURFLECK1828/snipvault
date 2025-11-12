@@ -3,11 +3,11 @@ class Snipvault < Formula
   include Language::Python::Virtualenv
 
   desc "LLM-Powered Code Snippet Manager with vector search"
-  homepage "https://github.com/yourusername/snipvault"
-  url "https://github.com/yourusername/snipvault/archive/refs/tags/v1.0.0.tar.gz"
+  homepage "https://github.com/ARTHURFLECK1828/snipvault"
+  url "https://github.com/ARTHURFLECK1828/snipvault/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "REPLACE_WITH_ACTUAL_SHA256"
   license "MIT"
-  head "https://github.com/yourusername/snipvault.git", branch: "main"
+  head "https://github.com/ARTHURFLECK1828/snipvault.git", branch: "main"
 
   depends_on "python@3.11"
   depends_on "postgresql@15"
@@ -62,7 +62,7 @@ class Snipvault < Formula
          snipvault init
 
       For more information, visit:
-      https://github.com/yourusername/snipvault#readme
+      https://github.com/ARTHURFLECK1828/snipvault#readme
     EOS
   end
 

@@ -54,7 +54,7 @@ snipvault init
 
 **Docker:**
 ```bash
-git clone https://github.com/yourusername/snipvault.git
+git clone https://github.com/ARTHURFLECK1828/snipvault.git
 cd snipvault
 docker-compose up -d
 docker exec -it snipvault-app snipvault init
@@ -62,7 +62,7 @@ docker exec -it snipvault-app snipvault init
 
 **From source:**
 ```bash
-git clone https://github.com/yourusername/snipvault.git
+git clone https://github.com/ARTHURFLECK1828/snipvault.git
 cd snipvault
 pip install -r requirements.txt
 python main.py init

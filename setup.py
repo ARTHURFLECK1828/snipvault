@@ -20,7 +20,7 @@ else:
 
 setup(
     name="snipvault",
-    version="1.0.0",
+    version="1.0.1",
     author="SnipVault Team",
     author_email="catcharavind18@gmail.com",
     description="LLM-Powered Code Snippet Manager with vector search",
